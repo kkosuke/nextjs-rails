@@ -27,6 +27,7 @@ $ ngrok http 8080
 - project-frontend/.env.local
 
 ※ ngrok をリスタートするたびに変えてください。
+※ .env.sample、.env.local.sampleを参考に
 
 ## 2
 ```
