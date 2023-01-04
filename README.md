@@ -5,6 +5,9 @@
 # DB環境
 - docker-compose.yml
 
+# 環境構築参考
+- https://zenn.dev/kei178/articles/43172ba33eece4
+
 ## 入り方
 ```
 $ docker ps
