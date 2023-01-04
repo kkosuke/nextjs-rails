@@ -1,0 +1,32 @@
+default: &default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  charset: utf8mb4
+  encoding: utf8mb4
+  collation: utf8mb4_general_ci
+
+local: &local
+  socket: /var/run/mysqld/mysqlx.sock
+  port: <%= ENV['DB_PORT'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+development:
+  <<: *default
+  <<: *local
+  database: nextjs_rails_development
+
+test:
+  <<: *default
+  <<: *local
+  database: nextjs_rails_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  socket: /tmp/mysql.sock
+  database: nextjs_rails_production
+  username: backend
+  password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
